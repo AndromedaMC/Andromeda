@@ -15,25 +15,18 @@ export default function () {
 		return null;
 	}
 
-	switch (theme) {
-		case "light":
-			return (
-				<button
-					className="btn btn-ghost btn-circle"
-					onClick={(e) => setTheme("dark")}
-				>
-					<span className=" i-fa6-solid-moon"></span>
-				</button>
-			);
-		case "dark":
-		default:
-			return (
-				<button
-					className="btn btn-ghost btn-circle"
-					onClick={(e) => setTheme("light")}
-				>
-					<span className=" i-fa6-solid-sun"></span>
-				</button>
-			);
-	}
+	return (
+		<label className="swap swap-rotate">
+			{/* this hidden checkbox controls the state */}
+			<input
+				type="checkbox"
+				className="theme-controller"
+				value="synthwave"
+				onChange={(e) => setTheme(theme == "light" ? "dark" : "light")}
+			/>
+
+			<span className=" i-fa6-solid-sun swap-on fill-current"></span>
+			<span className=" i-fa6-solid-moon swap-off fill-current"></span>
+		</label>
+	);
 }
