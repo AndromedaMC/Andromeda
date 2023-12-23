@@ -14,5 +14,8 @@ const config: Config = {
 			collections: getIconCollections(["fa6-solid"]),
 		}),
 	],
+	daisyui: {
+		themes: ["light", "dark"],
+	},
 };
 export default config;
