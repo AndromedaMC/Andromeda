@@ -1,35 +1,65 @@
+"use client";
+
+import createSupabaseBrowserClient from "@/utils/supabase/browserClient";
+
 interface ProviderButton {
-	icon: string;
+	id: string;
 	name: string;
 }
 
 export default function () {
 	const buttons: ProviderButton[] = [
 		{
-			icon: "google",
+			id: "google",
 			name: "Google",
 		},
 		{
-			icon: "discord",
+			id: "discord",
 			name: "Discord",
 		},
 		{
-			icon: "twitter",
+			id: "twitter",
 			name: "X",
 		},
 		{
-			icon: "github",
+			id: "github",
 			name: "GitHub",
 		},
 		{
-			icon: "gitlab",
+			id: "gitlab",
 			name: "GitLab",
 		},
 		{
-			icon: "bitbucket",
+			id: "bitbucket",
 			name: "BitBucket",
 		},
 	];
+
+	function signIn(provider: string) {
+		const supabase = createSupabaseBrowserClient();
+
+		switch (provider) {
+			case "google":
+				break;
+			case "discord":
+				break;
+			case "x":
+				break;
+			case "gitlab":
+				break;
+			case "bitbucket":
+				break;
+			case "github":
+			default:
+				supabase.auth.signInWithOAuth({
+					provider: "github",
+					options: {
+						redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+					},
+				});
+				break;
+		}
+	}
 
 	return (
 		<div className="grid place-items-center">
@@ -43,9 +73,10 @@ export default function () {
 							<button
 								className="btn btn-neutral"
 								key={button.name}
+								onClick={() => signIn(button.id)}
 							>
 								<span
-									className={`i-fa6-brands-${button.icon}`}
+									className={`i-fa6-brands-${button.id}`}
 								></span>
 								{button.name}
 							</button>

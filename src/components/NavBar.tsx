@@ -1,7 +1,15 @@
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
+import createSupabaseServerClient from "@/utils/supabase/serverClient";
 
-export default function () {
+export default async function () {
+	const supabase = createSupabaseServerClient(true);
+
+	const {
+		data: { session },
+		error,
+	} = await supabase.auth.getSession();
+
 	return (
 		<div className="navbar bg-base-100">
 			<div className="navbar-start">
@@ -65,9 +73,41 @@ export default function () {
 				<Link className="btn btn-ghost btn-circle" href="/">
 					<span className=" i-fa6-solid-magnifying-glass"></span>
 				</Link>
-				<Link className="btn btn-primary" href="/sign-in">
-					Login
-				</Link>
+
+				{session ? (
+					<div className="dropdown dropdown-end">
+						<div
+							tabIndex={0}
+							role="button"
+							className="btn btn-ghost btn-circle avatar"
+						>
+							<div className="w-10 rounded-full">
+								<img
+									alt="avatar"
+									src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=${session.user.id}`}
+								/>
+							</div>
+						</div>
+						<ul
+							tabIndex={0}
+							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
+						>
+							<li>
+								<a className="justify-between">Profile</a>
+							</li>
+							<li>
+								<a>Settings</a>
+							</li>
+							<li>
+								<button className="">Logout</button>
+							</li>
+						</ul>
+					</div>
+				) : (
+					<Link className="btn btn-primary" href="/sign-in">
+						Sign In
+					</Link>
+				)}
 			</div>
 		</div>
 	);
