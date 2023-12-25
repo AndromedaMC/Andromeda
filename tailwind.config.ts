@@ -11,7 +11,7 @@ const config: Config = {
 	plugins: [
 		require("daisyui"),
 		iconsPlugin({
-			collections: getIconCollections(["fa6-solid"]),
+			collections: getIconCollections(["fa6-solid", "fa6-brands"]),
 		}),
 	],
 	daisyui: {
