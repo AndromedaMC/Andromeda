@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
 import createSupabaseServerClient from "@/utils/supabase/serverClient";
+import { redirect } from "next/navigation";
 
 export default async function () {
 	const supabase = createSupabaseServerClient(true);
@@ -9,6 +10,13 @@ export default async function () {
 		data: { session },
 		error,
 	} = await supabase.auth.getSession();
+
+	async function signOut() {
+		"use server";
+
+		await createSupabaseServerClient().auth.signOut();
+		redirect("/");
+	}
 
 	return (
 		<div className="navbar bg-base-100">
@@ -99,7 +107,9 @@ export default async function () {
 								<a>Settings</a>
 							</li>
 							<li>
-								<button className="">Logout</button>
+								<form action={signOut}>
+									<button className="">Logout</button>
+								</form>
 							</li>
 						</ul>
 					</div>
