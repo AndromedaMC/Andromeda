@@ -18,38 +18,43 @@ export default function () {
 						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 					>
 						<li>
-							<Link href="/" className="font-semibold">
+							<Link href="/plugins" className="font-semibold">
 								Plugins
 							</Link>
 						</li>
 						<li>
-							<Link href="/" className="font-semibold">
+							<Link
+								href="/resource-packs"
+								className="font-semibold"
+							>
 								Resource Packs
 							</Link>
 						</li>
 						<li>
-							<Link href="/" className="font-semibold">
+							<Link href="/addons" className="font-semibold">
 								Addons
 							</Link>
 						</li>
 					</ul>
 				</div>
-				<a className="btn btn-ghost text-xl">Andromeda</a>
+				<Link className="btn btn-ghost text-xl" href="/">
+					Andromeda
+				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">
 					<li>
-						<Link href="/" className="font-semibold">
+						<Link href="/plugins" className="font-semibold">
 							Plugins
 						</Link>
 					</li>
 					<li>
-						<Link href="/" className="font-semibold">
+						<Link href="/resource-packs" className="font-semibold">
 							Resource Packs
 						</Link>
 					</li>
 					<li>
-						<Link href="/" className="font-semibold">
+						<Link href="/addons" className="font-semibold">
 							Addons
 						</Link>
 					</li>
@@ -60,7 +65,7 @@ export default function () {
 				<Link className="btn btn-ghost btn-circle" href="/">
 					<span className=" i-fa6-solid-magnifying-glass"></span>
 				</Link>
-				<Link className="btn btn-primary" href="">
+				<Link className="btn btn-primary" href="/sign-in">
 					Login
 				</Link>
 			</div>
