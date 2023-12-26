@@ -8,7 +8,6 @@ export default async function () {
 
 	const {
 		data: { session },
-		error,
 	} = await supabase.auth.getSession();
 
 	async function signOut() {
@@ -92,7 +91,7 @@ export default async function () {
 							<div className="w-10 rounded-full">
 								<img
 									alt="avatar"
-									src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=${session.user.id}`}
+									src={`https://api.dicebear.com/7.x/identicon/svg?seed=${session.user.id}`}
 								/>
 							</div>
 						</div>
@@ -108,7 +107,7 @@ export default async function () {
 							</li>
 							<li>
 								<form action={signOut}>
-									<button className="">Logout</button>
+									<button className="">Sign Out</button>
 								</form>
 							</li>
 						</ul>
