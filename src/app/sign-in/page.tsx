@@ -4,6 +4,7 @@ import createSupabaseBrowserClient from "@/utils/supabase/browserClient";
 
 interface ProviderButton {
 	id: string;
+	icon: JSX.Element;
 	name: string;
 }
 
@@ -11,26 +12,32 @@ export default function () {
 	const buttons: ProviderButton[] = [
 		{
 			id: "google",
+			icon: <span className="i-fa6-brands-google"></span>,
 			name: "Google",
 		},
 		{
 			id: "discord",
+			icon: <span className="i-fa6-brands-discord"></span>,
 			name: "Discord",
 		},
 		{
 			id: "twitter",
+			icon: <span className="i-fa6-brands-twitter"></span>,
 			name: "X",
 		},
 		{
 			id: "github",
+			icon: <span className="i-fa6-brands-github"></span>,
 			name: "GitHub",
 		},
 		{
 			id: "gitlab",
+			icon: <span className="i-fa6-brands-gitlab"></span>,
 			name: "GitLab",
 		},
 		{
 			id: "bitbucket",
+			icon: <span className="i-fa6-brands-bitbucket"></span>,
 			name: "BitBucket",
 		},
 	];
@@ -75,9 +82,7 @@ export default function () {
 								key={button.name}
 								onClick={() => signIn(button.id)}
 							>
-								<span
-									className={`i-fa6-brands-${button.id}`}
-								></span>
+								{button.icon}
 								{button.name}
 							</button>
 						))}
