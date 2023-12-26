@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
-import createSupabaseServerClient from "@/utils/supabase/serverClient";
+import createSupabaseServerClient from "@/lib/supabase/serverClient";
 import { redirect } from "next/navigation";
 
 export default async function () {
@@ -12,7 +12,6 @@ export default async function () {
 
 	async function signOut() {
 		"use server";
-
 		await createSupabaseServerClient().auth.signOut();
 		redirect("/");
 	}
@@ -97,10 +96,10 @@ export default async function () {
 						</div>
 						<ul
 							tabIndex={0}
-							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
+							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 text-base-content rounded-box w-52"
 						>
 							<li>
-								<a className="justify-between">Profile</a>
+								<a>Profile</a>
 							</li>
 							<li>
 								<a>Settings</a>

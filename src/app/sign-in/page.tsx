@@ -1,6 +1,6 @@
 "use client";
 
-import createSupabaseBrowserClient from "@/utils/supabase/browserClient";
+import createSupabaseBrowserClient from "@/lib/supabase/browserClient";
 
 interface ProviderButton {
 	id: string;

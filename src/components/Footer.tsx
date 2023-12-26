@@ -30,8 +30,20 @@ export default function () {
 				</nav>
 				<nav>
 					<header className="footer-title">Interact</header>
-					<a className="link link-hover">Discord</a>
-					<a className="link link-hover">GitHub</a>
+					<Link
+						href={process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK!}
+						target="_blank"
+						className="link link-hover"
+					>
+						Discord
+					</Link>
+					<Link
+						href={process.env.NEXT_PUBLIC_GITHUB_LINK!}
+						target="_blank"
+						className="link link-hover"
+					>
+						GitHub
+					</Link>
 				</nav>
 				<nav>
 					<header className="footer-title">Legal</header>
