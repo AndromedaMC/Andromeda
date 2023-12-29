@@ -75,7 +75,6 @@ export default async function () {
 				</ul>
 			</div>
 			<div className="navbar-end">
-				<ThemeSwitcher />
 				<Link className="btn btn-ghost btn-circle" href="/">
 					<span className=" i-fa6-solid-magnifying-glass"></span>
 				</Link>
@@ -99,10 +98,10 @@ export default async function () {
 							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 text-base-content rounded-box w-52"
 						>
 							<li>
-								<a>Profile</a>
+								<Link href="/user/appearance">Appearance</Link>
 							</li>
 							<li>
-								<a>Settings</a>
+								<Link href="/user/account">Account</Link>
 							</li>
 							<li>
 								<form action={signOut}>

@@ -15,7 +15,19 @@ const config: Config = {
 		}),
 	],
 	daisyui: {
-		themes: ["light", "dark"],
+		themes: [
+			"light",
+			"dark",
+			"synthwave",
+			"retro",
+			"black",
+			"dracula",
+			"night",
+			"dim",
+			"cyberpunk",
+			"sunset",
+			"nord",
+		],
 	},
 };
 export default config;
