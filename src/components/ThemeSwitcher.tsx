@@ -70,7 +70,7 @@ export default function () {
 	}
 
 	return (
-		<div className="dropdown mb-72">
+		<div className="dropdown">
 			<div tabIndex={0} role="button" className="btn m-1">
 				{themes[themes.findIndex((t) => t.id === theme)].name}
 				<span className="i-fa6-solid-chevron-down"></span>

@@ -1,3 +1,9 @@
+import AccountDeletion from "./AccountDeletion";
+
 export default function () {
-	return <div></div>;
+	return (
+		<div>
+			<AccountDeletion />
+		</div>
+	);
 }
